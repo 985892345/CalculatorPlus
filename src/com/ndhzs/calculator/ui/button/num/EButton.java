@@ -1,6 +1,5 @@
 package com.ndhzs.calculator.ui.button.num;
 
-import com.ndhzs.calculator.ui.button.AbstractCalculatorButton;
 import com.ndhzs.calculator.ui.button.IOperate;
 
 import java.awt.event.ActionEvent;
@@ -26,13 +25,8 @@ public class EButton extends AbstractNumButton {
                 return getText();
             }
         }
-        for (int i = input.length() - 1;i >= 0; i--) {
-            if (!Character.isDigit(input.charAt(i))) {
-                if (input.charAt(i) == '.') {
-                    return input;
-                }
-                break;
-            }
+        if (input.endsWith(".")) {
+            return input;
         }
         return input + getText();
     }

@@ -1,8 +1,9 @@
-package com.ndhzs.calculator.ui.button.simple;
+package com.ndhzs.calculator.ui.button.complex;
 
 import com.ndhzs.calculator.ui.button.AbstractCalculatorButton;
 import com.ndhzs.calculator.ui.button.IOperate;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
@@ -16,6 +17,8 @@ public class ArcButton extends AbstractCalculatorButton {
 
     public ArcButton(IOperate iOperate) {
         super("arc", iOperate);
+        setBackground(Color.WHITE);
+        setForeground(Color.GRAY);
     }
 
     @Override

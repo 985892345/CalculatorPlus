@@ -14,7 +14,7 @@ import java.awt.*;
  * @email 2767465918@qq.com
  * @date 2022/6/6 20:22
  */
-public class SimpleButtonPanel extends JPanel implements SwitchButton.INextButtonPanel, IOperate {
+public class SimpleButtonPanel extends JPanel implements SwitchButton.INextButtonPanel, IOperate, EquButton.IEqualOutput {
 
     private final ClearButton mBtnClear = new ClearButton(this);
     private final BackButton mBtnBack = new BackButton(this);
@@ -23,7 +23,7 @@ public class SimpleButtonPanel extends JPanel implements SwitchButton.INextButto
     private final MulButton mBtnMul = new MulButton(this);
     private final SubButton mBtnSub = new SubButton(this);
     private final AddButton mBtnAdd = new AddButton(this);
-    private final EquButton mBtnEqu = new EquButton(this);
+    private final EquButton mBtnEqu = new EquButton(this, this);
     private final PointButton mBtnPoint = new PointButton(this);
     private final SwitchButton mBtnSwitch = new SwitchButton(this, this);
 
@@ -40,6 +40,7 @@ public class SimpleButtonPanel extends JPanel implements SwitchButton.INextButto
 
     private final SwitchButton.INextButtonPanel mINext;
     private final IOperate mIOperate;
+    private final EquButton.IEqualOutput mIEqualOutput;
 
     private static final int ROWS = 5;
     private static final int COLS = 4;
@@ -53,10 +54,11 @@ public class SimpleButtonPanel extends JPanel implements SwitchButton.INextButto
             {mBtnSwitch, mBtnNum0, mBtnPoint, mBtnEqu}
     };
 
-    public SimpleButtonPanel(SwitchButton.INextButtonPanel iNext, IOperate iOperate) {
+    public SimpleButtonPanel(SwitchButton.INextButtonPanel iNext, IOperate iOperate, EquButton.IEqualOutput iEqualOutput) {
         super(new GridLayout(ROWS, COLS, MARGIN, MARGIN));
         this.mINext = iNext;
         this.mIOperate = iOperate;
+        this.mIEqualOutput = iEqualOutput;
         initButton();
     }
 
@@ -91,5 +93,10 @@ public class SimpleButtonPanel extends JPanel implements SwitchButton.INextButto
     @Override
     public int getNowUIPosition() {
         return mINext.getNowUIPosition();
+    }
+
+    @Override
+    public void onResult(String result) {
+        mIEqualOutput.onResult(result);
     }
 }

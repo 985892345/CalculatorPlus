@@ -1,6 +1,7 @@
 package com.ndhzs.calculator.ui.window.content.calculator.text;
 
 import com.ndhzs.calculator.ui.button.IOperate;
+import com.ndhzs.calculator.ui.button.simple.EquButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.awt.*;
  * @email 2767465918@qq.com
  * @date 2022/6/6 15:53
  */
-public class TextEditPanel extends JPanel implements IOperate {
+public class TextEditPanel extends JPanel implements IOperate, EquButton.IEqualOutput {
 
     private static final float TEXT_AREA_INPUT_HEIGHT_RADIO = 0.7F;
     private static final float TEXT_AREA_RESULT_HEIGHT_RADIO = 0.3F;
@@ -66,5 +67,10 @@ public class TextEditPanel extends JPanel implements IOperate {
         if (output != null) {
             mTextAreaInput.setText(output);
         }
+    }
+
+    @Override
+    public void onResult(String result) {
+        mTextAreaResult.setText(result);
     }
 }

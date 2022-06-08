@@ -1,6 +1,7 @@
 package com.ndhzs.calculator.ui.button;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
@@ -14,6 +15,7 @@ public abstract class AbstractCalculatorButton extends JButton {
 
     public AbstractCalculatorButton(String text, IOperate iOperate) {
         super(text);
+        setFont(new Font(null, Font.PLAIN, 20));
         addActionListener(event -> iOperate.output(onOperate(iOperate.input(), event)));
     }
 

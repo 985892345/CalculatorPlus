@@ -3,6 +3,7 @@ package com.ndhzs.calculator.ui.button.complex;
 import com.ndhzs.calculator.ui.button.AbstractCalculatorButton;
 import com.ndhzs.calculator.ui.button.IOperate;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
@@ -19,6 +20,8 @@ public class DegToRadButton extends AbstractCalculatorButton {
 
     public DegToRadButton(IOperate iOperate) {
         super(DEG, iOperate);
+        setBackground(Color.WHITE);
+        setForeground(Color.GRAY);
     }
 
     @Override

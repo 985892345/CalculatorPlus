@@ -11,7 +11,7 @@ import com.ndhzs.calculator.ui.window.content.convert.IConvert;
  */
 public class TimeConvertPanel extends AbstractGeneralUiConvertPanel {
 
-    public static final String TITLE = "进制转换";
+    public static final String TITLE = "时间转换";
 
     private static final String[] INPUT_TYPE = {
             "年", "周", "天", "小时", "分钟", "秒", "毫秒"

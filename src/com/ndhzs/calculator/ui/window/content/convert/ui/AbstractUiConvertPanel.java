@@ -18,8 +18,8 @@ public abstract class AbstractUiConvertPanel extends JPanel implements IOperate 
     private final JComboBox<String> mComboBoxInput;
     private final JComboBox<String> mComboBoxOutput;
 
-    private final JTextField mTextInput = new JTextField();
-    private final JTextField mTextOutput = new JTextField();
+    private final JTextField mTextInput = new JTextField("0");
+    private final JTextField mTextOutput = new JTextField("0");
 
     public AbstractUiConvertPanel(String title, String[] inputTypes, String[] outputTypes) {
         super(null);

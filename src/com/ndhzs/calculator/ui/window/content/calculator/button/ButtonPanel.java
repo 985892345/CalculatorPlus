@@ -1,6 +1,7 @@
 package com.ndhzs.calculator.ui.window.content.calculator.button;
 
 import com.ndhzs.calculator.ui.button.IOperate;
+import com.ndhzs.calculator.ui.button.simple.EquButton;
 import com.ndhzs.calculator.ui.button.simple.SwitchButton;
 
 import javax.swing.*;
@@ -25,11 +26,11 @@ public class ButtonPanel extends JPanel implements SwitchButton.INextButtonPanel
 
     private int mNowUIPosition = 1;
 
-    public ButtonPanel(IOperate iOperate) {
+    public ButtonPanel(IOperate iOperate, EquButton.IEqualOutput iEqualOutput) {
         super(null);
         setLayout(mCardLayout);
-        mPanelSimpleButton = new SimpleButtonPanel(this, iOperate);
-        mPanelComplexButton = new ComplexButtonPanel(this, iOperate);
+        mPanelSimpleButton = new SimpleButtonPanel(this, iOperate, iEqualOutput);
+        mPanelComplexButton = new ComplexButtonPanel(this, iOperate, iEqualOutput);
         add(mPanelSimpleButton, PANEL_SIMPLE_BUTTON);
         add(mPanelComplexButton, PANEL_COMPLEX_BUTTON);
     }

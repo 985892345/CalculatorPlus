@@ -25,7 +25,7 @@ public class CalculatorUtils {
         Deque<String> dequeResult = new ArrayDeque<>();
         while (!dequeLRD.isEmpty()) {
             String first = dequeLRD.removeFirst();
-            if (!first.matches("^\\d.*")) {
+            if (!first.matches("(^\\d.*)|(^-\\d.*)")) {
                 switch (first) {
                     case "+" :
                     case "-" :
@@ -44,6 +44,9 @@ public class CalculatorUtils {
                     case "sin(" :
                     case "cos(" :
                     case "tan(" :
+                    case "csc(" :
+                    case "sec(" :
+                    case "cot(" :
                     case "arcsin(" :
                     case "arccos(" :
                     case "arctan(" :
@@ -66,6 +69,9 @@ public class CalculatorUtils {
                 break;
             case "!" :
                 result = 1;
+                if (x < 1) {
+                    throw new RuntimeException("阶乘出错，x = " + x);
+                }
                 while (x != 1) {
                     result *= x;
                     x--;
@@ -85,6 +91,15 @@ public class CalculatorUtils {
                 break;
             case "tan(" :
                 result = Math.tan(x);
+                break;
+            case "csc(" :
+                result = Math.pow(Math.sin(x), -1);
+                break;
+            case "sec(" :
+                result = Math.pow(Math.cos(x), -1);
+                break;
+            case "cot(" :
+                result = Math.cos(x) / Math.sin(x);
                 break;
             case "arcsin(" :
                 result = Math.asin(x);
@@ -136,14 +151,17 @@ public class CalculatorUtils {
         PRIORITY_MAP.put("÷", 2);
         PRIORITY_MAP.put("%", 2);
         PRIORITY_MAP.put("√", 3);
-        PRIORITY_MAP.put("!", 4);
-        PRIORITY_MAP.put("^", 5);
+        PRIORITY_MAP.put("^", 4);
+        PRIORITY_MAP.put("!", 5);
         PRIORITY_MAP.put("(", 0);
         PRIORITY_MAP.put("lg(", 0);
         PRIORITY_MAP.put("ln(", 0);
         PRIORITY_MAP.put("sin(", 0);
         PRIORITY_MAP.put("cos(", 0);
         PRIORITY_MAP.put("tan(", 0);
+        PRIORITY_MAP.put("csc(", 0);
+        PRIORITY_MAP.put("sec(", 0);
+        PRIORITY_MAP.put("cot(", 0);
         PRIORITY_MAP.put("arcsin(", 0);
         PRIORITY_MAP.put("arccos(", 0);
         PRIORITY_MAP.put("arctan(", 0);
@@ -155,7 +173,7 @@ public class CalculatorUtils {
         ArrayDeque<String> dequeLRD = new ArrayDeque<>();
         ArrayDeque<String> dequeSymbol = new ArrayDeque<>();
         for (String s : substringList) {
-            if (s.matches("^\\d.*")) {
+            if (s.matches("(^\\d.*)|(^-\\d.*)")) {
                 dequeLRD.add(s);
             } else {
                 if (s.contains("(")) {
@@ -242,6 +260,18 @@ public class CalculatorUtils {
                 }
             }
         }
+        char c2 = ' ';
+        if (start + 1 <= end) {
+            c2 = input.charAt(start + 1);
+        }
+        char c3 = ' ';
+        if (start + 2 <= end) {
+            c3 = input.charAt(start + 2);
+        }
+        char c4 = ' ';
+        if (start + 3 <= end) {
+            c4 = input.charAt(start + 3);
+        }
         switch (c) {
             case ' ':
                 getSubstring(start + 1, end, input, substringList);
@@ -302,7 +332,6 @@ public class CalculatorUtils {
                         substringList.add("×");
                     }
                 }
-                char c2 = input.charAt(start + 1);
                 if (c2 == 'g') {
                     substringList.add("lg(");
                 } else {
@@ -316,7 +345,11 @@ public class CalculatorUtils {
                         substringList.add("×");
                     }
                 }
-                substringList.add("sin(");
+                if (c2 == 'i') {
+                    substringList.add("sin(");
+                } else {
+                    substringList.add("sec(");
+                }
                 getSubstring(start + 4, end, input, substringList);
                 break;
             case 'c' :
@@ -325,7 +358,13 @@ public class CalculatorUtils {
                         substringList.add("×");
                     }
                 }
-                substringList.add("cos(");
+                if (c3 == 's') {
+                    substringList.add("cos(");
+                } else if (c3 == 'c') {
+                    substringList.add("csc(");
+                } else if (c3 == 't') {
+                    substringList.add("cot(");
+                }
                 getSubstring(start + 4, end, input, substringList);
                 break;
             case 't' :
@@ -343,7 +382,6 @@ public class CalculatorUtils {
                         substringList.add("×");
                     }
                 }
-                char c4 = input.charAt(start + 3);
                 if (c4 == 's') {
                     substringList.add("arcsin(");
                 } else if (c4 == 'c') {
@@ -356,7 +394,7 @@ public class CalculatorUtils {
             case 'π' :
                 if (!substringList.isEmpty()) {
                     String last = substringList.get(substringList.size() - 1);
-                    if (last.matches("(^[-1-9]\\d*((\\d)|(\\.\\d+)|(\\.?\\d*e[+-]?\\d+))$)|^[1-9]$")) {
+                    if (last.matches("(^[-1-9]\\d*((\\d)|(\\.\\d+)|(\\.?\\d*e[+-]?\\d+))$)|^[1-9]$|^0((\\.\\d*)|(\\.\\d+e[+-]?\\d*))$")) {
                         double lastResult = Double.parseDouble(last);
                         String result = String.valueOf(lastResult * Math.PI);
                         substringList.remove(substringList.size() - 1);
@@ -372,7 +410,7 @@ public class CalculatorUtils {
             case 'e' :
                 if (!substringList.isEmpty()) {
                     String last = substringList.get(substringList.size() - 1);
-                    if (last.matches("(^[-1-9]\\d*((\\d)|(\\.\\d+))$)|^[1-9]$")) {
+                    if (last.matches("(^[-1-9]\\d*((\\d)|(\\.\\d+))$)|^[1-9]$|^0(\\.\\d+)")) {
                         substringList.remove(substringList.size() - 1);
                         substringList.add(last + "e");
                     } else {

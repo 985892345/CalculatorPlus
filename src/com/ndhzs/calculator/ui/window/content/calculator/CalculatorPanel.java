@@ -22,7 +22,7 @@ public class CalculatorPanel extends JPanel {
     public CalculatorPanel() {
         super(null);
         mPanelTextEdit = new TextEditPanel();
-        mPanelButton = new ButtonPanel(mPanelTextEdit);
+        mPanelButton = new ButtonPanel(mPanelTextEdit, mPanelTextEdit);
         add(mPanelTextEdit);
         add(mPanelButton);
     }

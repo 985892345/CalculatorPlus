@@ -15,7 +15,7 @@ import java.awt.*;
  * @email 2767465918@qq.com
  * @date 2022/6/6 15:53
  */
-public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButtonPanel, IOperate {
+public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButtonPanel, IOperate, EquButton.IEqualOutput {
 
     private final ClearButton mBtnClear = new ClearButton(this);
     private final BackButton mBtnBack = new BackButton(this);
@@ -24,7 +24,7 @@ public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButt
     private final MulButton mBtnMul = new MulButton(this);
     private final SubButton mBtnSub = new SubButton(this);
     private final AddButton mBtnAdd = new AddButton(this);
-    private final EquButton mBtnEqu = new EquButton(this);
+    private final EquButton mBtnEqu = new EquButton(this, this);
     private final PointButton mBtnPoint = new PointButton(this);
     private final SwitchButton mBtnSwitch = new SwitchButton(this, this);
     private final ArcButton mBtnArc = new ArcButton(this);
@@ -56,6 +56,7 @@ public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButt
 
     private final SwitchButton.INextButtonPanel mINext;
     private final IOperate mIOperate;
+    private final EquButton.IEqualOutput mIEqualOutput;
 
     private static final int ROWS = 7;
     private static final int COLS = 5;
@@ -71,10 +72,11 @@ public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButt
             {mBtnSwitch, mBtnE, mBtnNum0, mBtnPoint, mBtnEqu}
     };
 
-    public ComplexButtonPanel(SwitchButton.INextButtonPanel iNext, IOperate iOperate) {
+    public ComplexButtonPanel(SwitchButton.INextButtonPanel iNext, IOperate iOperate, EquButton.IEqualOutput iEqualOutput) {
         super(new GridLayout(ROWS, COLS, MARGIN, MARGIN));
         this.mINext = iNext;
         this.mIOperate = iOperate;
+        this.mIEqualOutput = iEqualOutput;
         initButton();
     }
 
@@ -100,7 +102,17 @@ public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButt
         });
 
         mBtnDegToRad.addActionListener(e -> {
-            mBtnArc.setEnabled(!mBtnArc.isEnabled());
+            if (mBtnArc.isEnabled()) {
+                mBtnArc.setEnabled(false);
+                mBtnSin.setText("csc");
+                mBtnCos.setText("sec");
+                mBtnTan.setText("cot");
+            } else {
+                mBtnArc.setEnabled(true);
+                mBtnSin.setText("sin");
+                mBtnCos.setText("cos");
+                mBtnTan.setText("tan");
+            }
         });
     }
 
@@ -127,5 +139,10 @@ public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButt
     @Override
     public int getNowUIPosition() {
         return mINext.getNowUIPosition();
+    }
+
+    @Override
+    public void onResult(String result) {
+        mIEqualOutput.onResult(result);
     }
 }

@@ -3,6 +3,7 @@ package com.ndhzs.calculator.ui.button.complex;
 import com.ndhzs.calculator.ui.button.AbstractCalculatorButton;
 import com.ndhzs.calculator.ui.button.IOperate;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
@@ -16,6 +17,8 @@ public class LnButton extends AbstractCalculatorButton {
 
     public LnButton(IOperate iOperate) {
         super("ln", iOperate);
+        setBackground(Color.WHITE);
+        setForeground(Color.GRAY);
     }
 
     @Override
