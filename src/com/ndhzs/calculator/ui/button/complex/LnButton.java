@@ -20,6 +20,9 @@ public class LnButton extends AbstractCalculatorButton {
 
     @Override
     protected String onOperate(String input, ActionEvent event) {
+        if("0".equals(input)){
+            return getText() + "(";
+        }
         return input + getText() + "(";
     }
 }

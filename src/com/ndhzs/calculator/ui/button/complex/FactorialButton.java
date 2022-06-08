@@ -23,6 +23,14 @@ public class FactorialButton extends AbstractCalculatorButton {
         char end = input.charAt(input.length() - 1);
         String lastText = String.valueOf(end);
         if (lastText.matches("[\\d)]$")) {
+            for (int i = input.length() - 1;i >= 0; i--) {
+                if(!Character.isDigit(input.charAt(i))){
+                    if(input.charAt(i) == '.'){
+                        return input;
+                    }
+                    break;
+                }
+            }
             return input + "!";
         }
         return null;

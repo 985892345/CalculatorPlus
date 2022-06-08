@@ -20,6 +20,9 @@ public class CosButton extends AbstractCalculatorButton {
 
     @Override
     protected String onOperate(String input, ActionEvent event) {
+        if("0".equals(input)){
+            return getText() + "(";
+        }
         return input + getText() + "(";
     }
 }

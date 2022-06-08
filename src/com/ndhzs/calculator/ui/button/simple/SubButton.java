@@ -22,7 +22,7 @@ public class SubButton extends AbstractCalculatorButton {
     protected String onOperate(String input, ActionEvent event) {
         char end = input.charAt(input.length() - 1);
         String lastText = String.valueOf(end);
-        if (lastText.matches("[\\d)!√]$")) {
+        if (lastText.matches("[\\d)!√eπ]$")) {
             if(input.charAt(input.length() - 1) == '√') {
                 return input + "(-";
             }

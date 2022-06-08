@@ -20,6 +20,20 @@ public class PiButton extends AbstractNumButton {
 
     @Override
     protected String onOperate(String input, ActionEvent event) {
+        if (isInputLegal(input)) {
+            if ("0".equals(input)) {
+                // 如果只有一个 0
+                return getText();
+            }
+        }
+        for (int i = input.length() - 1;i >= 0; i--) {
+            if (!Character.isDigit(input.charAt(i))) {
+                if (input.charAt(i) == '.') {
+                    return input;
+                }
+                break;
+            }
+        }
         return input + getText();
     }
 }

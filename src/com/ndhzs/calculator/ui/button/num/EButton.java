@@ -26,6 +26,14 @@ public class EButton extends AbstractNumButton {
                 return getText();
             }
         }
+        for (int i = input.length() - 1;i >= 0; i--) {
+            if (!Character.isDigit(input.charAt(i))) {
+                if (input.charAt(i) == '.') {
+                    return input;
+                }
+                break;
+            }
+        }
         return input + getText();
     }
 }
