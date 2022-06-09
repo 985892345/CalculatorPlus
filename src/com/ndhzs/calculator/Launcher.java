@@ -11,7 +11,7 @@ import com.ndhzs.calculator.ui.Window;
  */
 public class Launcher {
     public static void main(String[] args) {
-        Window window = new Window(500, 800);
+        Window window = new Window(400, 680);
         window.show();
     }
 }

@@ -14,7 +14,7 @@ import javax.swing.*;
  */
 public class CalculatorPanel extends JPanel {
 
-    private static final float TEXT_EDIT_PANEL_HEIGHT_RADIO = 0.3F;
+    private static final float TEXT_EDIT_PANEL_HEIGHT_RADIO = 0.26F;
 
     private final TextEditPanel mPanelTextEdit;
     private final ButtonPanel mPanelButton;

@@ -3,6 +3,7 @@ package com.ndhzs.calculator.ui.window.content.convert.ui;
 import com.ndhzs.calculator.ui.button.IOperate;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -26,19 +27,27 @@ public abstract class AbstractUiConvertPanel extends JPanel implements IOperate 
     public AbstractUiConvertPanel(String title, String[] inputTypes, String[] outputTypes) {
         super(null);
         mTitle.setText(title);
+        mTitle.setEditable(false);
+
         mComboBoxInput = new JComboBox<>(inputTypes);
         mComboBoxOutput = new JComboBox<>(outputTypes);
 
         mTitle.setHorizontalAlignment(JTextField.CENTER);
+
         mComboBoxInput.setSelectedIndex(0);
         mComboBoxOutput.setSelectedIndex(1);
         mComboBoxInput.addItemListener(itemEvent ->
                 onInput(mTextInput.getText(), mComboBoxInput.getSelectedIndex(), mComboBoxOutput.getSelectedIndex()));
         mComboBoxOutput.addItemListener(itemEvent ->
                 onInput(mTextInput.getText(), mComboBoxInput.getSelectedIndex(), mComboBoxOutput.getSelectedIndex()));
+        mComboBoxInput.setBackground(Color.WHITE);
+        mComboBoxOutput.setBackground(Color.WHITE);
 
         mTextInput.setEditable(false);
         mTextOutput.setEditable(false);
+
+        mTextInput.setMargin(new Insets(0, 4, 0, 0));
+        mTextOutput.setMargin(new Insets(0, 4, 0, 0));
 
         add(mTitle);
         add(mComboBoxInput);
@@ -56,9 +65,11 @@ public abstract class AbstractUiConvertPanel extends JPanel implements IOperate 
         int childHeight = (int) (height * 0.05);
         mTitle.setBounds(childX, childY, childWidth, childHeight);
 
+        double heightRadio = 0.2;
+
         childY += childHeight;
-        childWidth = (int) (width  * 0.2);
-        childHeight = (int) (height * 0.1);
+        childWidth = (int) (width  * 0.3);
+        childHeight = (int) (height * heightRadio);
         mComboBoxInput.setBounds(childX, childY, childWidth, childHeight);
 
         childY += childHeight;
@@ -68,7 +79,7 @@ public abstract class AbstractUiConvertPanel extends JPanel implements IOperate 
         childWidth = width - childWidth;
         mTextOutput.setBounds(childX, childY, childWidth, childHeight);
 
-        childY -= (int) (height * 0.1);
+        childY -= (int) (height * heightRadio);
         mTextInput.setBounds(childX, childY, childWidth, childHeight);
     }
 
