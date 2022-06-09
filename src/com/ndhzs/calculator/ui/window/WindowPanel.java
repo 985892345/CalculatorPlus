@@ -30,7 +30,7 @@ public class WindowPanel extends JPanel {
     @Override
     public void setBounds(int x, int y, int width, int height) {
         super.setBounds(x, y, width, height);
-        mPanelToolBar.setBounds(0, 0, width, (int) (height * TOOL_BAR_HEIGHT_RADIO));
+        mPanelToolBar.setBounds(0, 0, width - 10, (int) (height * TOOL_BAR_HEIGHT_RADIO));
         mPanelContent.setBounds(10, mPanelToolBar.getHeight(), width - 30, height - mPanelToolBar.getHeight());
     }
 }

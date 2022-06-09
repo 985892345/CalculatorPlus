@@ -172,6 +172,13 @@ public class CalculatorUtils {
         getSubstring(0, input.length() - 1, input, substringList);
         ArrayDeque<String> dequeLRD = new ArrayDeque<>();
         ArrayDeque<String> dequeSymbol = new ArrayDeque<>();
+        String last0 = substringList.get(substringList.size() - 1);
+        if (last0.endsWith("e")) {
+            // 如果已 e 结尾，则需要把它改为大小，而不是科学计数法
+            String num = last0.substring(0, last0.length() - 1);
+            substringList.remove(substringList.size() - 1);
+            substringList.add(String.valueOf(Double.parseDouble(num) * Math.E));
+        }
         for (String s : substringList) {
             if (s.matches("(^\\d.*)|(^-\\d.*)")) {
                 dequeLRD.add(s);
