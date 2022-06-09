@@ -26,7 +26,46 @@ public class VelocityConvertPanel extends AbstractGeneralUiConvertPanel {
     }
 
     @Override
-    protected void onInput(String input) {
-
+    protected void onInput(String input, int inputIndex, int outputIndex) {
+        if(inputIndex == outputIndex){
+            setResult(input);
+            return;
+        }
+        double inputDouble = Double.parseDouble(input);
+        switch (inputIndex){
+            case 0: {
+                if(outputIndex == 1) {
+                        inputDouble = inputDouble * 3.6;
+                        setResult(String.valueOf(inputDouble));
+                }
+                else {
+                        inputDouble = inputDouble / 1000;
+                        setResult(String.valueOf(inputDouble));
+                }
+                break;
+            }
+            case 1:{
+                if(outputIndex == 0){
+                    inputDouble = inputDouble / 3.6;
+                    setResult(String.valueOf(inputDouble));
+                }
+                else {
+                    inputDouble = inputIndex * 3600;
+                    setResult(String.valueOf(inputDouble));
+                }
+                break;
+            }
+            case 2:{
+                if(outputIndex == 0){
+                    inputDouble = inputDouble *1000;
+                    setResult(String.valueOf(inputDouble));
+                }
+                else {
+                    inputDouble = inputDouble / 3600;
+                    setResult(String.valueOf(inputDouble));
+                }
+                break;
+            }
+        }
     }
 }

@@ -14,11 +14,11 @@ public class VolumeConvertPanel extends AbstractGeneralUiConvertPanel {
     public static final String TITLE = "体积转换";
 
     private static final String[] INPUT_TYPE = {
-            "立方米", "立方分米", "立方厘米", "立方毫米"
+            "立方米", "立方分米", "立方厘米", "立方毫米", "立方微米"
     };
 
     private static final String[] OUTPUT_TYPE = {
-            "立方米", "立方分米", "立方厘米", "立方毫米"
+            "立方米", "立方分米", "立方厘米", "立方毫米", "立方微米"
     };
 
     public VolumeConvertPanel(IConvert iConvert) {
@@ -26,7 +26,8 @@ public class VolumeConvertPanel extends AbstractGeneralUiConvertPanel {
     }
 
     @Override
-    protected void onInput(String input) {
-
+    protected void onInput(String input, int inputIndex, int outputIndex) {
+        double result = Double.parseDouble(input) * Math.pow(10, (outputIndex - inputIndex) * 3);
+        setResult(String.valueOf(result));
     }
 }

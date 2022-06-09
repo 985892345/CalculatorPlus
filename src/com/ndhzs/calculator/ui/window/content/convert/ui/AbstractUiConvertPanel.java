@@ -3,6 +3,8 @@ package com.ndhzs.calculator.ui.window.content.convert.ui;
 import com.ndhzs.calculator.ui.button.IOperate;
 
 import javax.swing.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 /**
  * ...
@@ -30,6 +32,10 @@ public abstract class AbstractUiConvertPanel extends JPanel implements IOperate 
         mTitle.setHorizontalAlignment(JTextField.CENTER);
         mComboBoxInput.setSelectedIndex(0);
         mComboBoxOutput.setSelectedIndex(1);
+        mComboBoxInput.addItemListener(itemEvent ->
+                onInput(mTextInput.getText(), mComboBoxInput.getSelectedIndex(), mComboBoxOutput.getSelectedIndex()));
+        mComboBoxOutput.addItemListener(itemEvent ->
+                onInput(mTextInput.getText(), mComboBoxInput.getSelectedIndex(), mComboBoxOutput.getSelectedIndex()));
 
         mTextInput.setEditable(false);
         mTextOutput.setEditable(false);
@@ -79,7 +85,7 @@ public abstract class AbstractUiConvertPanel extends JPanel implements IOperate 
     public void output(String output) {
         if (output != null) {
             mTextInput.setText(output);
-            onInput(output);
+            onInput(output, mComboBoxInput.getSelectedIndex(), mComboBoxOutput.getSelectedIndex());
         }
     }
 
@@ -91,5 +97,5 @@ public abstract class AbstractUiConvertPanel extends JPanel implements IOperate 
         mTextOutput.setText(text);
     }
 
-    protected abstract void onInput(String input);
+    protected abstract void onInput(String input, int inputIndex, int outputIndex);
 }

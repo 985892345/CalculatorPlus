@@ -1,7 +1,5 @@
 package com.ndhzs.calculator.ui.window.content.convert.ui;
 
-import com.ndhzs.calculator.ui.button.simple.BackButton;
-import com.ndhzs.calculator.ui.button.simple.ClearButton;
 import com.ndhzs.calculator.ui.window.content.convert.IConvert;
 
 /**
@@ -16,11 +14,11 @@ public class AreaConvertPanel extends AbstractGeneralUiConvertPanel {
     public static final String TITLE = "面积转换";
 
     private static final String[] INPUT_TYPE = {
-            "平方米", "平方分米", "平方厘米"
+            "平方米", "平方分米", "平方厘米", "平方毫米", "平方微米"
     };
 
     private static final String[] OUTPUT_TYPE = {
-            "平方米", "平方分米", "平方厘米"
+            "平方米", "平方分米", "平方厘米", "平方毫米", "平方微米"
     };
 
     public AreaConvertPanel(IConvert iConvert) {
@@ -28,7 +26,8 @@ public class AreaConvertPanel extends AbstractGeneralUiConvertPanel {
     }
 
     @Override
-    protected void onInput(String input) {
-
+    protected void onInput(String input, int inputIndex, int outputIndex) {
+        double result = Double.parseDouble(input) * Math.pow(10, (outputIndex - inputIndex) * 2);
+        setResult(String.valueOf(result));
     }
 }
