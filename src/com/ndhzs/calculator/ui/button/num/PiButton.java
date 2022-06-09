@@ -31,6 +31,10 @@ public class PiButton extends AbstractNumButton {
         if (input.endsWith(".")) {
             return input;
         }
+        char c = input.charAt(input.length() - 2);
+        if(input.charAt(input.length() - 1)== '0' && (c != '.'  || !Character.isDigit(c) )){
+            return input.substring(0,input.length() - 1) + getText();
+        }
         return input + getText();
     }
 }
