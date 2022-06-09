@@ -28,7 +28,7 @@ public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButt
     private final PointButton mBtnPoint = new PointButton(this);
     private final SwitchButton mBtnSwitch = new SwitchButton(this, this);
     private final ArcButton mBtnArc = new ArcButton(this);
-    private final DegToRadButton mBtnDegToRad = new DegToRadButton(this);
+    private final InverseTrigButton mBtnDegToRad = new InverseTrigButton(this);
     private final SinButton mBtnSin = new SinButton(this);
     private final CosButton mBtnCos = new CosButton(this);
     private final TanButton mBtnTan = new TanButton(this);
@@ -142,7 +142,7 @@ public class ComplexButtonPanel extends JPanel implements SwitchButton.INextButt
     }
 
     @Override
-    public void onResult(String result) {
-        mIEqualOutput.onResult(result);
+    public void onResult(String output) {
+        mIEqualOutput.onResult(output);
     }
 }

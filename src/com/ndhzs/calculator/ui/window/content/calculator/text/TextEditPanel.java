@@ -2,6 +2,7 @@ package com.ndhzs.calculator.ui.window.content.calculator.text;
 
 import com.ndhzs.calculator.ui.button.IOperate;
 import com.ndhzs.calculator.ui.button.simple.EquButton;
+import com.ndhzs.calculator.ui.utils.CalculatorUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ public class TextEditPanel extends JPanel implements IOperate, EquButton.IEqualO
     private static final float TEXT_AREA_RESULT_HEIGHT_RADIO = 0.3F;
 
     private final JTextField mTextAreaInput = new JTextField("0");
-    private final JTextField mTextAreaResult = new JTextField("计算结果");
+    private final JTextField mTextAreaResult = new JTextField("0");
 
     public TextEditPanel() {
         super(null);
@@ -66,11 +67,21 @@ public class TextEditPanel extends JPanel implements IOperate, EquButton.IEqualO
     public void output(String output) {
         if (output != null) {
             mTextAreaInput.setText(output);
+            try {
+                mTextAreaResult.setText(String.valueOf(CalculatorUtils.getResult(output)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
-    public void onResult(String result) {
-        mTextAreaResult.setText(result);
+    public void onResult(String output) {
+        try {
+            mTextAreaResult.setText(String.valueOf(CalculatorUtils.getResult(output)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            mTextAreaResult.setText("计算出错");
+        }
     }
 }

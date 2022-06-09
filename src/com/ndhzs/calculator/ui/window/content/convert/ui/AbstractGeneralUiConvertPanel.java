@@ -7,6 +7,7 @@ import com.ndhzs.calculator.ui.button.simple.PointButton;
 import com.ndhzs.calculator.ui.window.content.convert.IConvert;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * ...
@@ -44,6 +45,12 @@ public abstract class AbstractGeneralUiConvertPanel extends AbstractUiConvertPan
     public AbstractGeneralUiConvertPanel(String title, String[] inputTypes, String[] outputTypes, IConvert iConvert) {
         super(title, inputTypes, outputTypes);
 
+        for (JButton[] jButtons : mBtnGrid) {
+            for (JButton jButton : jButtons) {
+                jButton.setFont(new Font(null, Font.PLAIN, 18));
+            }
+        }
+        mBtnBackUI.setBackground(Color.WHITE);
         mBtnBackUI.addActionListener(e -> iConvert.showSelectConvert());
 
         add(mBtnBackUI);

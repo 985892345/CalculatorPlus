@@ -13,24 +13,16 @@ import java.awt.event.ActionEvent;
  * @email 2767465918@qq.com
  * @date 2022/6/6 22:32
  */
-public class DegToRadButton extends AbstractCalculatorButton {
+public class InverseTrigButton extends AbstractCalculatorButton {
 
-    private static final String DEG = "deg";
-    private static final String RAD = "rad";
-
-    public DegToRadButton(IOperate iOperate) {
-        super(DEG, iOperate);
+    public InverseTrigButton(IOperate iOperate) {
+        super("1/trig", iOperate);
         setBackground(Color.WHITE);
         setForeground(Color.GRAY);
     }
 
     @Override
     protected String onOperate(String input, ActionEvent event) {
-        if (getText().equals(DEG)) {
-            setText(RAD);
-        } else  {
-            setText(DEG);
-        }
         return null;
     }
 }

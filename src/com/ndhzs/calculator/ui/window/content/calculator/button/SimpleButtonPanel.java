@@ -96,7 +96,7 @@ public class SimpleButtonPanel extends JPanel implements SwitchButton.INextButto
     }
 
     @Override
-    public void onResult(String result) {
-        mIEqualOutput.onResult(result);
+    public void onResult(String output) {
+        mIEqualOutput.onResult(output);
     }
 }

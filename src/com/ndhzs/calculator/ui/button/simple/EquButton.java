@@ -2,7 +2,6 @@ package com.ndhzs.calculator.ui.button.simple;
 
 import com.ndhzs.calculator.ui.button.AbstractCalculatorButton;
 import com.ndhzs.calculator.ui.button.IOperate;
-import com.ndhzs.calculator.ui.utils.CalculatorUtils;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -27,16 +26,11 @@ public class EquButton extends AbstractCalculatorButton {
 
     @Override
     protected String onOperate(String input, ActionEvent event) {
-        try {
-            mIEqualOutput.onResult(String.valueOf(CalculatorUtils.getResult(input)));
-        } catch (Exception e) {
-            e.printStackTrace();
-            mIEqualOutput.onResult("计算出错！");
-        }
+        mIEqualOutput.onResult(input);
         return null;
     }
 
     public interface IEqualOutput {
-        void onResult(String result);
+        void onResult(String output);
     }
 }

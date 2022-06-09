@@ -57,7 +57,7 @@ public class CalculatorUtils {
                 dequeResult.add(first);
             }
         }
-        return Double.parseDouble(dequeResult.removeLast());
+        return Double.parseDouble(dequeResult.getFirst());
     }
 
     private static String unaryOperation(String a, String symbol) {
@@ -203,12 +203,15 @@ public class CalculatorUtils {
                             }
                         }
                     }
-                    dequeSymbol.add(s);
+                   dequeSymbol.add(s);
                 }
             }
         }
         while (!dequeSymbol.isEmpty()) {
-            dequeLRD.add(dequeSymbol.removeLast());
+            String last = dequeSymbol.removeLast();
+            if (!"(".equals(last)) {
+                dequeLRD.add(last);
+            }
         }
         return dequeLRD;
     }
@@ -392,7 +395,7 @@ public class CalculatorUtils {
                 getSubstring(start + 7, end, input, substringList);
                 break;
             case 'π' :
-                if (!substringList.isEmpty()) {
+               if (!substringList.isEmpty()) {
                     String last = substringList.get(substringList.size() - 1);
                     if (last.matches("(^[-1-9]\\d*((\\d)|(\\.\\d+)|(\\.?\\d*e[+-]?\\d+))$)|^[1-9]$|^0((\\.\\d*)|(\\.\\d+e[+-]?\\d*))$")) {
                         double lastResult = Double.parseDouble(last);
