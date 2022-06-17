@@ -3,7 +3,7 @@ package com.ndhzs.calculator;
 import com.ndhzs.calculator.ui.Window;
 
 /**
- * ...
+ * 用于启动整个系统
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ...
+ * 显示复杂计算的容器，与简单运算界面类似，只是额外包含了用于复杂计算的按钮
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

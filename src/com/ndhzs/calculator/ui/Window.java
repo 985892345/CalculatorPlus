@@ -5,7 +5,7 @@ import com.ndhzs.calculator.ui.window.WindowPanel;
 import javax.swing.*;
 
 /**
- * ...
+ * 包含了整个应用程序的主窗口
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com
@@ -13,6 +13,9 @@ import javax.swing.*;
  */
 public class Window {
 
+    /**
+     * 主窗口
+     */
     private final JFrame mWindow = new JFrame("计算器增强版");
 
     public Window(int width, int height) {

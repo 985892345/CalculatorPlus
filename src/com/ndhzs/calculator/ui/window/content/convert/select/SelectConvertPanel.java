@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ...
+ * 详细选择界面
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

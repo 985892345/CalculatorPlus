@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ...
+ * 显示简单计算的容器，其中包含所有简单运算的按钮
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

@@ -31,6 +31,10 @@ public class EquButton extends AbstractCalculatorButton {
     }
 
     public interface IEqualOutput {
+        /**
+         * 设置结果
+         * @param output 输出的结果值
+         */
         void onResult(String output);
     }
 }

@@ -3,7 +3,7 @@ package com.ndhzs.calculator.ui.window.content.convert.ui;
 import com.ndhzs.calculator.ui.window.content.convert.IConvert;
 
 /**
- * ...
+ * 速度转换界面
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

@@ -39,9 +39,23 @@ public class SwitchButton extends AbstractCalculatorButton {
         return null;
     }
 
+    /**
+     * 用于实现点击下一次按钮后操作的接口
+     */
     public interface INextButtonPanel {
+        /**
+         * 显示简单计算界面
+         */
         void showSimpleButton();
+
+        /**
+         * 显示简单计算界面
+         */
         void showComplexButton();
+
+        /**
+         * @return 当前显示界面的位置
+         */
         int getNowUIPosition();
     }
 }

@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ...
+ * 转换主界面
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com
@@ -18,6 +18,7 @@ import java.awt.*;
  */
 public class ConvertPanel extends JPanel implements IConvert {
 
+    // 卡片式布局
     private final CardLayout mCardLayout = new CardLayout();
 
     private static final String PANEL_SELECT_CONVERT = "PANEL_SELECT_CONVERT";
@@ -26,11 +27,15 @@ public class ConvertPanel extends JPanel implements IConvert {
     private static final String PANEL_VELOCITY_CONVERT = "PANEL_VELOCITY_CONVERT";
     private static final String PANEL_VOLUME_CONVERT = "PANEL_VOLUME_CONVERT";
 
-
+    // 详细选择界面
     private final SelectConvertPanel mPanelSelectConvert;
+    // 面积装换界面
     private final AreaConvertPanel mPanelAreaConvert;
+    // 时间转换界面
     private final TimeConvertPanel mPanelTimeConvert;
+    // 速度转换界面
     private final VelocityConvertPanel mPanelVelocityConvert;
+    // 体积装换界面
     private final VolumeConvertPanel mPanelVolumeConvert;
 
     public ConvertPanel() {

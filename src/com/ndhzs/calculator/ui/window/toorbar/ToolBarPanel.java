@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ...
+ * 顶部按钮容器，其中包含“计算”和“换算”两个按钮
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com
@@ -27,6 +27,9 @@ public class ToolBarPanel extends JPanel {
         initAction();
     }
 
+    /**
+     * 设置布局
+     */
     private void initLayout() {
         mBtnCalculate.setBackground(Color.WHITE);
         mBtnConvert.setBackground(Color.WHITE);
@@ -34,11 +37,17 @@ public class ToolBarPanel extends JPanel {
         add(mBtnConvert);
     }
 
+    /**
+     * 设置按钮
+     */
     private void initButton() {
         mBtnCalculate.setToolTipText("打开计算界面");
         mBtnConvert.setToolTipText("打开换算界面");
     }
 
+    /**
+     * 设置点击事件
+     */
     private void initAction() {
         mBtnCalculate.addActionListener(e -> mIContent.showCalculator());
         mBtnConvert.addActionListener(e -> mIContent.showConvert());

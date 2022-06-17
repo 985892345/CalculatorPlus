@@ -1,7 +1,7 @@
 package com.ndhzs.calculator.ui.window.content.convert;
 
 /**
- * ...
+ * 定义换算主界面的接口
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

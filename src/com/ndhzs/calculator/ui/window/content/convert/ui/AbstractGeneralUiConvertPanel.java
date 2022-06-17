@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ...
+ * 为了统一按钮的抽象类
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

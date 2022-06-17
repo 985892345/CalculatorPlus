@@ -3,7 +3,12 @@ package com.ndhzs.calculator.utils;
 import java.util.*;
 
 /**
- * ...
+ * 运算逻辑实现工具类
+ *
+ * 大致步骤：
+ * 1、先遍历一遍字符串，切割成数字或者计算符
+ * 2、在转换成逆波兰表达式（后缀表达式）
+ * 3、最后使用栈来计算
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com

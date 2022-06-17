@@ -3,7 +3,7 @@ package com.ndhzs.calculator.ui.window.content.convert.ui;
 import com.ndhzs.calculator.ui.window.content.convert.IConvert;
 
 /**
- * ...
+ * 面积转换界面
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com
@@ -28,6 +28,6 @@ public class AreaConvertPanel extends AbstractGeneralUiConvertPanel {
     @Override
     protected void onInput(String input, int inputIndex, int outputIndex) {
         double result = Double.parseDouble(input) * Math.pow(10, (outputIndex - inputIndex) * 2);
-        setResult(String.valueOf(result));
+        setResult(String.valueOf(result)); // 输出结果
     }
 }

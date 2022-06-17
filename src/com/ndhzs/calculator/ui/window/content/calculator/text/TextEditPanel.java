@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * ...
+ * 包含输入和结果文本框的容器，包含显示输入的文本框和显示计算结果的文本框
  *
  * @author 985892345 (Guo Xiangrui)
  * @email 2767465918@qq.com
@@ -19,7 +19,9 @@ public class TextEditPanel extends JPanel implements IOperate, EquButton.IEqualO
     private static final float TEXT_AREA_INPUT_HEIGHT_RADIO = 0.7F;
     private static final float TEXT_AREA_RESULT_HEIGHT_RADIO = 0.3F;
 
+    // 显示输入的文本框
     private final JTextField mTextAreaInput = new JTextField("0");
+    // 显示计算结果的文本框
     private final JTextField mTextAreaResult = new JTextField("0");
 
     public TextEditPanel() {
@@ -44,6 +46,13 @@ public class TextEditPanel extends JPanel implements IOperate, EquButton.IEqualO
         mTextAreaResult.setBackground(Color.GRAY);
     }
 
+    /**
+     * 布局
+     * @param x 左上角坐标 x
+     * @param y 左上角坐标 y
+     * @param width 宽
+     * @param height 高
+     */
     @Override
     public void setBounds(int x, int y, int width, int height) {
         super.setBounds(x, y, width, height);
@@ -58,11 +67,19 @@ public class TextEditPanel extends JPanel implements IOperate, EquButton.IEqualO
         mTextAreaResult.setBounds(childX, childY, childWidth, childHeight);
     }
 
+    /**
+     * 得到输入值
+     * @return 输出值
+     */
     @Override
     public String input() {
         return mTextAreaInput.getText();
     }
 
+    /**
+     * 向外输出值
+     * @param output 输出值
+     */
     @Override
     public void output(String output) {
         if (output != null) {
@@ -75,6 +92,10 @@ public class TextEditPanel extends JPanel implements IOperate, EquButton.IEqualO
         }
     }
 
+    /**
+     * 设置结果
+     * @param output 输出的结果值
+     */
     @Override
     public void onResult(String output) {
         try {

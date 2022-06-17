@@ -19,5 +19,11 @@ public abstract class AbstractCalculatorButton extends JButton {
         addActionListener(event -> iOperate.output(onOperate(iOperate.input(), event)));
     }
 
+    /**
+     * 点击事件的回调，用于设置输出结果或进行计算
+     * @param input 输入值
+     * @param event 事件
+     * @return 输出值
+     */
     protected abstract String onOperate(String input, ActionEvent event);
 }
