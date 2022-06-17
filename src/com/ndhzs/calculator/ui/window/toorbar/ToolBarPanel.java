@@ -1,5 +1,7 @@
 package com.ndhzs.calculator.ui.window.toorbar;
 
+import com.ndhzs.calculator.ui.window.content.IContent;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +12,7 @@ import java.awt.*;
  * @email 2767465918@qq.com
  * @date 2022/6/6 16:20
  */
-public class ToolBarPanel extends Panel {
+public class ToolBarPanel extends JPanel {
 
     private final JButton mBtnCalculate = new JButton("计算");
     private final JButton mBtnConvert = new JButton("换算");

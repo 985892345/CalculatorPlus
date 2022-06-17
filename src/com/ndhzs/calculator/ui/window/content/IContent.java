@@ -1,4 +1,4 @@
-package com.ndhzs.calculator.ui.window.toorbar;
+package com.ndhzs.calculator.ui.window.content;
 
 /**
  * ...
@@ -8,6 +8,13 @@ package com.ndhzs.calculator.ui.window.toorbar;
  * @date 2022/6/7 8:21
  */
 public interface IContent {
+    /**
+     * 跳转计算界面
+     */
     void showCalculator();
+
+    /**
+     * 跳转换算界面
+     */
     void showConvert();
 }

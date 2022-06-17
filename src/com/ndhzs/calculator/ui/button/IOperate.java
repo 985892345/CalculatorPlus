@@ -8,6 +8,15 @@ package com.ndhzs.calculator.ui.button;
  * @date 2022/6/6 23:30
  */
 public interface IOperate {
+    /**
+     * 得到输入值
+     * @return 输出值
+     */
     String input();
+
+    /**
+     * 向外输出值
+     * @param output 输出值
+     */
     void output(String output);
 }

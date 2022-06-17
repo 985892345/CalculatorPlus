@@ -1,4 +1,4 @@
-package com.ndhzs.calculator.ui.utils;
+package com.ndhzs.calculator.utils;
 
 import java.util.*;
 

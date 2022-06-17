@@ -37,7 +37,7 @@ public class SelectConvertPanel extends JPanel {
 
     private void initBtn() {
         mBtnAreaConvert.addActionListener(e -> mIConvert.showAreaConvert());
-        mBtnHexBinDecOct.addActionListener(e -> mIConvert.showHexBinDecOctConvert());
+        mBtnHexBinDecOct.addActionListener(e -> mIConvert.showTimeConvert());
         mBtnVelocity.addActionListener(e -> mIConvert.showVelocityConvert());
         mBtnVolume.addActionListener(e -> mIConvert.showVolumeConvert());
     }

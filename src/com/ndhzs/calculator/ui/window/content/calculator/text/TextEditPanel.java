@@ -2,7 +2,7 @@ package com.ndhzs.calculator.ui.window.content.calculator.text;
 
 import com.ndhzs.calculator.ui.button.IOperate;
 import com.ndhzs.calculator.ui.button.simple.EquButton;
-import com.ndhzs.calculator.ui.utils.CalculatorUtils;
+import com.ndhzs.calculator.utils.CalculatorUtils;
 
 import javax.swing.*;
 import java.awt.*;

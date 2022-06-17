@@ -2,7 +2,6 @@ package com.ndhzs.calculator.ui.window.content;
 
 import com.ndhzs.calculator.ui.window.content.calculator.CalculatorPanel;
 import com.ndhzs.calculator.ui.window.content.convert.ConvertPanel;
-import com.ndhzs.calculator.ui.window.toorbar.IContent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,6 +38,6 @@ public class ContentPanel extends JPanel implements IContent {
     @Override
     public void showConvert() {
         mCardLayout.show(this, PANEL_CONVERT);
-        mPanelConvert.showMainUI();
+        mPanelConvert.showSelectConvert();
     }
 }

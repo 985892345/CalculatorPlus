@@ -29,7 +29,7 @@ public class ConvertPanel extends JPanel implements IConvert {
 
     private final SelectConvertPanel mPanelSelectConvert;
     private final AreaConvertPanel mPanelAreaConvert;
-    private final TimeConvertPanel mPanelHexBinDecOctConvert;
+    private final TimeConvertPanel mPanelTimeConvert;
     private final VelocityConvertPanel mPanelVelocityConvert;
     private final VolumeConvertPanel mPanelVolumeConvert;
 
@@ -38,18 +38,14 @@ public class ConvertPanel extends JPanel implements IConvert {
         setLayout(mCardLayout);
         mPanelSelectConvert = new SelectConvertPanel(this);
         mPanelAreaConvert = new AreaConvertPanel(this);
-        mPanelHexBinDecOctConvert = new TimeConvertPanel(this);
+        mPanelTimeConvert = new TimeConvertPanel(this);
         mPanelVelocityConvert = new VelocityConvertPanel(this);
         mPanelVolumeConvert = new VolumeConvertPanel(this);
         add(mPanelSelectConvert, PANEL_SELECT_CONVERT);
         add(mPanelAreaConvert, PANEL_AREA_CONVERT);
-        add(mPanelHexBinDecOctConvert, PANEL_HEX_BIN_DEC_OCT_CONVERT);
+        add(mPanelTimeConvert, PANEL_HEX_BIN_DEC_OCT_CONVERT);
         add(mPanelVelocityConvert, PANEL_VELOCITY_CONVERT);
         add(mPanelVolumeConvert, PANEL_VOLUME_CONVERT);
-    }
-
-    public void showMainUI() {
-        mCardLayout.show(this, PANEL_SELECT_CONVERT);
     }
 
     @Override
@@ -63,7 +59,7 @@ public class ConvertPanel extends JPanel implements IConvert {
     }
 
     @Override
-    public void showHexBinDecOctConvert() {
+    public void showTimeConvert() {
         mCardLayout.show(this, PANEL_HEX_BIN_DEC_OCT_CONVERT);
     }
 
